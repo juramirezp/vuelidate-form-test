@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Vite App</title>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+			crossorigin="anonymous"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="/css/main.css" />
+	</head>
+	<body>
+		<!-- Cambiar por clase custom -->
+		<div class="MAIN-COMPONENT">
+			<h1>Formulario</h1>
+
+			<form
+				id="formIntermediario"
+				class="container"
+				@submit.prevent="submitHandler"
+			>
+				<div class="row">
+					<div class="col-12">
+						<div class="form-group">
+							<label>Nombre</label>
+							<input
+								type="text"
+								class="form-control"
+								placeholder="Nombre"
+								v-model="campos.nombre"
+								:class="{ 'is-invalid': $v.campos.nombre.$error }"
+							/>
+							<small
+								class="text-danger"
+								v-if="$v.campos.nombre.$error && !$v.campos.nombre.required"
+							>
+								Campo obligatorio
+							</small>
+							<small class="text-danger" v-if="!$v.campos.nombre.minLength">
+								Valor invalido
+							</small>
+						</div>
+					</div>
+					<div class="col-12">
+						<div class="form-group">
+							<label>Apellidos</label>
+							<input
+								type="text"
+								class="form-control"
+								placeholder="Apellidos"
+								v-model="campos.apellido"
+								:class="{ 'is-invalid': $v.campos.apellido.$error }"
+							/>
+							<small
+								class="text-danger"
+								v-if="$v.campos.apellido.$error && !$v.campos.apellido.required"
+							>
+								Campo obligatorio
+							</small>
+							<small class="text-danger" v-if="!$v.campos.apellido.minLength">
+								Valor invalido
+							</small>
+						</div>
+					</div>
+					<div class="col-12">
+						<div class="form-group">
+							<label>Email</label>
+							<input
+								type="text"
+								class="form-control"
+								placeholder="name@example.com"
+								v-model="campos.email"
+								:class="{ 'is-invalid': $v.campos.email.$error }"
+							/>
+							<small
+								class="text-danger"
+								v-if="$v.campos.email.$error && !$v.campos.email.required"
+							>
+								Campo obligatorio
+							</small>
+							<small class="text-danger" v-if="!$v.campos.email.email">
+								Valor invalido
+							</small>
+						</div>
+					</div>
+					<div class="col-12">
+						<div class="form-group">
+							<label>Rut</label>
+							<input
+								type="text"
+								class="form-control"
+								placeholder="rut"
+								v-model="campos.rut"
+								:class="{ 'is-invalid': $v.campos.rut.$error || (!$v.campos.rut.rutValido && $v.campos.rut.required) }"
+								@keyup="formatRut"
+							/>
+							<small
+								class="text-danger"
+								v-if="$v.campos.email.$error && !$v.campos.email.required"
+							>
+								Campo obligatorio
+							</small>
+							<small
+								class="text-danger"
+								v-if="$v.campos.email.$error && $v.campos.rut.rutValido"
+							>
+								Valor invalido
+							</small>
+						</div>
+					</div>
+					<div class="col-12 mb-4">
+						<div class="form-check">
+							<input
+								class="form-check-input"
+								type="checkbox"
+								value=""
+								id="defaultCheck1"
+								v-model="campos.quierotarjeta"
+							/>
+							<label class="form-check-label" for="defaultCheck1">
+								quiero tarjeta
+							</label>
+						</div>
+					</div>
+					<div class="col-12">
+						<div class="form-group">
+							<label for="exampleFormControlSelect1">Sucursal</label>
+							<select
+								class="form-control"
+								id="exampleFormControlSelect1"
+								v-model="campos.sucursal"
+								:class="{ 'is-invalid': !$v.campos.sucursal.required }"
+							>
+								<option value="" selected>Seleccione</option>
+								<option value="1">Sucursal 1</option>
+								<option value="2">Sucursal 2</option>
+								<option value="3">Sucursal 3</option>
+								<option value="4">Sucursal 4</option>
+								<option value="5">Sucursal 5</option>
+							</select>
+							<small class="text-danger" v-if="!$v.campos.sucursal.required">
+								Campo requerido
+							</small>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<button type="submit">enviar</button>
+				</div>
+			</form>
+		</div>
+
+		<script
+			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.2/vue.js"
+			integrity="sha512-xYW3nUDsEP4Jnj1DtKYxwqvVqVZ02oSs3zTgYfooPOK/5u2F0XVzI9Kzlbf6bzjXRX7drUfhq7u6P4ggxxrEgg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<script src="https://cdn.jsdelivr.net/npm/vuelidate@0.7.6/dist/vuelidate.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vuelidate@0.7.6/dist/validators.min.js"></script>
+		<script type="module" src="/js/test.js"></script>
+		<script type="module" src="./src/main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,147 @@
+@font-face {
+	font-family: "iconos-seguros";
+	src: url("iconos-seguro.eot");
+	src: url("/iconos-seguro.eot") format("embedded-opentype"),
+		url("iconos-seguro.ttf") format("truetype"), url("iconos-seguro.woff"),
+		url("iconos-seguro.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+
+[class^="icos-"],
+[class*=" icos-"] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: "iconos-seguros" !important;
+	speak: never;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icos-cheque:before {
+	content: "\a900";
+}
+.icos-auto-seguro:before {
+	content: "\a901";
+}
+.icos-check-solid:before {
+	content: "\a902";
+}
+.icos-libre-disponibilidad:before {
+	content: "\a903";
+}
+.icos-garantia:before {
+	content: "\a904";
+}
+.icos-celular-check:before {
+	content: "\a905";
+}
+.icos-ubicacion:before {
+	content: "\a906";
+}
+.icos-farmacia-cruz-verde:before {
+	content: "\a907";
+}
+.icos-ampolleta:before {
+	content: "\a908";
+}
+.icos-seguro-pet:before {
+	content: "\a909";
+}
+.icos-maletin:before {
+	content: "\a90a";
+}
+.icos-hogar:before {
+	content: "\a90b";
+}
+.icos-ambulancia-2:before {
+	content: "\a90c";
+}
+.icos-cancer:before {
+	content: "\a90d";
+}
+.icos-ambulancia-1:before {
+	content: "\a90e";
+}
+.icos-dinero-1:before {
+	content: "\a90f";
+}
+.icos-dinero-2:before {
+	content: "\a910";
+}
+.icos-escudo:before {
+	content: "\a911";
+}
+.icos-dinero-3:before {
+	content: "\a912";
+}
+.icos-bonificacion:before {
+	content: "\a913";
+}
+.icos-farmacia:before {
+	content: "\a914";
+}
+.icos-caja-herramientas:before {
+	content: "\a915";
+}
+.icos-accidente-auto:before {
+	content: "\a916";
+}
+.icos-auto:before {
+	content: "\a917";
+}
+.icos-herramientas:before {
+	content: "\a918";
+}
+.icos-check:before {
+	content: "\a919";
+}
+.icos-cedula:before {
+	content: "\a91a";
+}
+.icos-asegurados:before {
+	content: "\a91b";
+}
+.icos-robo-3:before {
+	content: "\a91c";
+}
+.icos-robo-2:before {
+	content: "\a91d";
+}
+.icos-telefono:before {
+	content: "\a91e";
+}
+.icos-robo-1:before {
+	content: "\a91f";
+}
+.icos-bicicleta-2:before {
+	content: "\a920";
+}
+.icos-incendio-1:before {
+	content: "\a921";
+}
+.icos-ahorro:before {
+	content: "\a922";
+}
+.icos-diagnostico:before {
+	content: "\a923";
+}
+.icos-bicicleta-3:before {
+	content: "\a924";
+}
+.icos-covid19:before {
+	content: "\a925";
+}
+.icos-incendio-2:before {
+	content: "\a926";
+}
+.icos-bicicleta-1:before {
+	content: "\a927";
+}
